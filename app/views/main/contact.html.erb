@@ -1,0 +1,18 @@
+<h1>Contact</h1>
+
+<% flash.each do |type, message| %>
+  <div class="alert alert-<%= type == :notice ? 'success' : 'danger' %>"><%= message %></div>
+<% end %>
+
+<%= form_with url: contact_path, method: :post, local: true do %>
+  <%= label_tag :name, "Name" %>
+  <%= text_field_tag :name, nil, class: "form-control mb-2", required: true %>
+
+  <%= label_tag :email, "Email" %>
+  <%= email_field_tag :email, nil, class: "form-control mb-2", required: true %>
+
+  <%= label_tag :message, "Message" %>
+  <%= text_area_tag :message, nil, class: "form-control mb-2", rows: 4, required: true %>
+
+  <%= submit_tag "Submit", class: "btn btn-primary" %>
+<% end %>
