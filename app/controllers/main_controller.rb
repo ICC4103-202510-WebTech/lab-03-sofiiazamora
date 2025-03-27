@@ -13,7 +13,7 @@ class MainController < ApplicationController
       message = params[:message]
   
       if name.present? && email.present? && message.present?
-        flash[:notice] = "Thank you for your message, we will contact you."
+        flash[:notice] = "Thank you for your message, we will contact you soon."
       else
         flash[:alert] = "Please fill out all fields."
       end
